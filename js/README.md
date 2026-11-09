@@ -135,9 +135,7 @@ console.log(extra.source_values);
 
 - [IAAI API on apiauto.space](https://apiauto.space/en/iaai-api/) and the [API documentation](https://apiauto.space/en/docs/)
 - [`apiauto`](https://www.npmjs.com/package/apiauto): the general client for all markets
-- Clients for the other sources: [`encar-api`](https://www.npmjs.com/package/encar-api),
-  [`che168-api`](https://www.npmjs.com/package/che168-api), [`copart-api`](https://www.npmjs.com/package/copart-api),
-  [`iaai-api`](https://www.npmjs.com/package/iaai-api)
+- Clients for the other sources: [`encar-api-client`](https://www.npmjs.com/package/encar-api-client), [`che168-api`](https://www.npmjs.com/package/che168-api), [`copart-api`](https://www.npmjs.com/package/copart-api)
 - [Examples in curl, Python, JavaScript and PHP](https://github.com/apiauto-space/iaai-api-examples)
 - The Python version of this client: [`iaai-api` on PyPI](https://pypi.org/project/iaai-api/)
 
