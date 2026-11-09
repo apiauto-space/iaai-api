@@ -1,0 +1,70 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "iaai-api"
+dynamic = ["version"]
+description = "IAAI API client for Python: IAAI insurance auction lots (USA) with VIN, damage and sale date as JSON, from the apiauto.space team"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "apiauto.space" }]
+keywords = ["iaai", "iaai api", "insurance auto auctions", "car auction", "salvage cars", "usa cars", "vin", "vehicle data", "api client"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
+]
+dependencies = ["apiauto-space>=0.1.1,<0.2"]
+
+[project.urls]
+Homepage = "https://apiauto.space/en/iaai-api/"
+Documentation = "https://apiauto.space/en/docs/"
+Repository = "https://github.com/apiauto-space/iaai-api"
+Issues = "https://github.com/apiauto-space/iaai-api/issues"
+Changelog = "https://github.com/apiauto-space/iaai-api/blob/main/python/CHANGELOG.md"
+"Get a demo key" = "https://t.me/apiautospace_bot?start=demo"
+
+[dependency-groups]
+dev = ["pytest>=8", "ruff>=0.15", "mypy>=1.15", "typing_extensions>=4.12"]
+
+[tool.hatch.version]
+path = "src/iaai_api/_version.py"
+
+[tool.hatch.build.targets.sdist]
+include = ["src", "tests", "CHANGELOG.md", "README.md", "LICENSE"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/iaai_api"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "UP", "B", "A", "C4", "SIM", "PT", "RUF", "S", "T20"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S101", "S105", "S106"]
+
+[tool.mypy]
+strict = true
+python_version = "3.10"
+files = ["src", "tests"]
