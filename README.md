@@ -13,14 +13,16 @@ No scraper to write or maintain.
 import iaai_api
 
 with iaai_api.Client() as client:  # reads APIAUTO_KEY
-    for car in client.cars(brand="Toyota", year_min=2020, limit=20)["items"]:
+    for car in client.iter_cars(max_items=20, brand="Toyota", year_min=2020):
         print(car["id"], car["title"], car["price"]["amount"])
 ```
 
 ```ts
 import { IaaiApi } from "iaai-api";
 
-const page = await new IaaiApi().cars({ brand: "Toyota", year_min: 2020, limit: 20 });
+for await (const car of new IaaiApi().iterCars({ brand: "Toyota", year_min: 2020, maxItems: 20 })) {
+  console.log(car.id, car.title, car.price.amount);
+}
 ```
 
 Both are thin layers over the general apiauto.space clients ([Python](https://github.com/apiauto-space/apiauto-python),

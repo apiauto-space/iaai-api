@@ -46,12 +46,13 @@ Keep the key on your server: the API does not accept browser requests.
 import iaai_api
 
 with iaai_api.Client() as client:  # reads APIAUTO_KEY
-    page = client.cars(brand="Toyota", year_min=2020, limit=20)
-    for car in page["items"]:
+    cars = list(client.iter_cars(max_items=20, brand="Toyota", year_min=2020))
+    for car in cars:
         print(car["id"], car["title"], car["price"]["amount"], car["price"]["currency"])
 
-    one = client.car("45551597")  # a listing number or "iaai:45551597"
-    print(one["listing_url"], one["photos"][:1])
+    # One car by its listing number, such as "45551597", or its id, such as "iaai:45551597"
+    one = client.car(cars[0]["source_id"])
+    print(one["vin"], one["photos"][:1])
 ```
 
 A record looks like this (shortened; real values from the catalog):

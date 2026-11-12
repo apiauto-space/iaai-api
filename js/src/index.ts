@@ -106,8 +106,9 @@ function ourChange(change: Change): boolean {
  * import { IaaiApi } from "iaai-api";
  *
  * const api = new IaaiApi(); // reads APIAUTO_KEY
- * const page = await api.cars({ brand: "Toyota", year_min: 2020, limit: 20 });
- * for (const car of page.items) console.log(car.id, car.title, car.price.amount);
+ * for await (const car of api.iterCars({ brand: "Toyota", year_min: 2020, maxItems: 20 })) {
+ *   console.log(car.id, car.title, car.price.amount);
+ * }
  * ```
  */
 export class IaaiApi {

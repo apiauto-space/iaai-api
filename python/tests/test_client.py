@@ -46,7 +46,7 @@ def test_constants() -> None:
     assert iaai_api.MARKET == "us"
     assert iaai_api.SOURCE == "iaai"
     assert iaai_api.SHARED_MARKET is True
-    assert iaai_api.__version__ == "0.1.0"
+    assert iaai_api.__version__ == "0.1.1"
 
 
 def test_cars_presets_the_market() -> None:

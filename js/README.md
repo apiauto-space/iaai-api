@@ -39,13 +39,15 @@ import { IaaiApi } from "iaai-api";
 
 const api = new IaaiApi(); // reads APIAUTO_KEY
 
-const page = await api.cars({ brand: "Toyota", year_min: 2020, limit: 20 });
-for (const car of page.items) {
+const cars = [];
+for await (const car of api.iterCars({ brand: "Toyota", year_min: 2020, maxItems: 20 })) {
   console.log(car.id, car.title, car.price.amount, car.price.currency);
+  cars.push(car);
 }
 
-const one = await api.car("45551597"); // a listing number or "iaai:45551597"
-console.log(one.listing_url, one.photos[0]);
+// One car by its listing number, such as "45551597", or its id, such as "iaai:45551597"
+const one = await api.car(cars[0].source_id);
+console.log(one.vin, one.photos[0]);
 ```
 
 A record looks like this (shortened; real values from the catalog):

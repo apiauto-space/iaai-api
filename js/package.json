@@ -1,6 +1,6 @@
 {
   "name": "iaai-api",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "IAAI API client for JavaScript and TypeScript: IAAI insurance auction lots (USA) with VIN, damage and sale date as JSON, from the apiauto.space team",
   "keywords": ["iaai", "iaai-api", "insurance-auto-auctions", "car-auction", "salvage-cars", "usa", "vin", "vehicle-data", "api-client", "typescript"],
   "homepage": "https://apiauto.space/en/iaai-api/",
